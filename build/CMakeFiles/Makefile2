@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Drivin
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test_opencv.dir/all
+all: CMakeFiles/distracted.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/test_opencv.dir/codegen
+codegen: CMakeFiles/distracted.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/test_opencv.dir/clean
+clean: CMakeFiles/distracted.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test_opencv.dir
+# Target rules for target CMakeFiles/distracted.dir
 
 # All Build rule for target.
-CMakeFiles/test_opencv.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Driving-Detection-System/build/CMakeFiles --progress-num=1,2 "Built target test_opencv"
-.PHONY : CMakeFiles/test_opencv.dir/all
+CMakeFiles/distracted.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Driving-Detection-System/build/CMakeFiles --progress-num=1,2 "Built target distracted"
+.PHONY : CMakeFiles/distracted.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test_opencv.dir/rule: cmake_check_build_system
+CMakeFiles/distracted.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Driving-Detection-System/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_opencv.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/distracted.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Driving-Detection-System/build/CMakeFiles 0
-.PHONY : CMakeFiles/test_opencv.dir/rule
+.PHONY : CMakeFiles/distracted.dir/rule
 
 # Convenience name for target.
-test_opencv: CMakeFiles/test_opencv.dir/rule
-.PHONY : test_opencv
+distracted: CMakeFiles/distracted.dir/rule
+.PHONY : distracted
 
 # codegen rule for target.
-CMakeFiles/test_opencv.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Driving-Detection-System/build/CMakeFiles --progress-num=1,2 "Finished codegen for target test_opencv"
-.PHONY : CMakeFiles/test_opencv.dir/codegen
+CMakeFiles/distracted.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/joshs/Desktop/MYPortfolio/Sleepiness-Distracted-Driving-Detection-System/build/CMakeFiles --progress-num=1,2 "Finished codegen for target distracted"
+.PHONY : CMakeFiles/distracted.dir/codegen
 
 # clean rule for target.
-CMakeFiles/test_opencv.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/clean
-.PHONY : CMakeFiles/test_opencv.dir/clean
+CMakeFiles/distracted.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/clean
+.PHONY : CMakeFiles/distracted.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

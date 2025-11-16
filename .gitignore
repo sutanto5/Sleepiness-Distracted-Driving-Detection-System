@@ -1,0 +1,46 @@
+# Build folders
+build/
+cmake-build-*/
+dist/
+out/
+
+# Compiled objects / binaries
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+a.out
+*.out
+
+# Debug / logs
+*.log
+*.tmp
+
+# macOS junk
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code / editor configs
+.vscode/
+.idea/
+*.swp
+*~
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Generated images / data (optional)
+snapshot.png
+*.png
+*.jpg
+*.jpeg
