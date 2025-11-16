@@ -136,12 +136,12 @@ class AntiSleepView extends Ui.View {
             ? "HR: --"
             : "HR: " + _currentHr.toString() + " bpm";
 
-        dc.drawText(w/2, h*0.4, Gfx.FONT_LARGE, hrText,
+        dc.drawText(w/2, h*0.35, Gfx.FONT_LARGE, hrText,
                     Gfx.TEXT_JUSTIFY_CENTER);
 
         // Threshold info
         var thText = "Threshold: " + HR_THRESHOLD.toString() + " bpm";
-        dc.drawText(w/2, h*0.57, Gfx.FONT_SMALL, thText,
+        dc.drawText(w/2, h*0.53, Gfx.FONT_SMALL, thText,
                     Gfx.TEXT_JUSTIFY_CENTER);
 
         // Decide what status / message to show at the bottom
@@ -160,13 +160,13 @@ class AntiSleepView extends Ui.View {
             } else if (_alerted) {
                 bottomText = "Alert triggered (HR low)";
             } else if (_isLow) {
-                bottomText = "Low HR... monitoring";
+                bottomText = "Low HR: Monitoring";
             } else {
                 bottomText = "Awake / normal HR";
             }
         }
 
-        dc.drawText(w/2, h*0.69, Gfx.FONT_SMALL, bottomText,
+        dc.drawText(w/2, h*0.65, Gfx.FONT_SMALL, bottomText,
                     Gfx.TEXT_JUSTIFY_CENTER);
     }
 

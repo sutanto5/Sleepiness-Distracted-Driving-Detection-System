@@ -561,14 +561,14 @@ _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System
         %tmp.47 = div %tmp.45 %tmp.46;
         %tmp.48 = lgetv %h.2;
         symbol [ h %tmp.48 139 25 26 ];
-        %tmp.49 = 0.4;
+        %tmp.49 = 0.35;
         %tmp.50 = mul %tmp.48 %tmp.49;
-        symbol [ Gfx %tmp.51 139 32 35 ];
+        symbol [ Gfx %tmp.51 139 33 36 ];
         %tmp.51 = getm $.Toybox.Graphics;
-        symbol [ FONT_LARGE %tmp.52 139 36 46 ];
+        symbol [ FONT_LARGE %tmp.52 139 37 47 ];
         %tmp.52 = getv %tmp.51 :FONT_LARGE;
         %tmp.53 = lgetv %hrText.3;
-        symbol [ hrText %tmp.53 139 48 54 ];
+        symbol [ hrText %tmp.53 139 49 55 ];
         symbol [ Gfx %tmp.54 140 20 23 ];
         %tmp.54 = getm $.Toybox.Graphics;
         symbol [ TEXT_JUSTIFY_CENTER %tmp.55 140 24 43 ];
@@ -600,7 +600,7 @@ _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System
         %tmp.68 = div %tmp.66 %tmp.67;
         %tmp.69 = lgetv %h.2;
         symbol [ h %tmp.69 144 25 26 ];
-        %tmp.70 = 0.57;
+        %tmp.70 = 0.53;
         %tmp.71 = mul %tmp.69 %tmp.70;
         symbol [ Gfx %tmp.72 144 33 36 ];
         %tmp.72 = getm $.Toybox.Graphics;
@@ -710,7 +710,7 @@ _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System
 _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_true:
 _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_31_164_12_start:
 [ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 163 16 ]
-        %tmp.110 = "Low HR... monitoring";
+        %tmp.110 = "Low HR: Monitoring";
         lputv %bottomText.6 %tmp.110;
         symbol [ bottomText %bottomText.6 163 16 26 ];
 _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_31_164_12_stop:
@@ -738,7 +738,7 @@ _Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System
         %tmp.116 = div %tmp.114 %tmp.115;
         %tmp.117 = lgetv %h.2;
         symbol [ h %tmp.117 169 25 26 ];
-        %tmp.118 = 0.69;
+        %tmp.118 = 0.65;
         %tmp.119 = mul %tmp.117 %tmp.118;
         symbol [ Gfx %tmp.120 169 33 36 ];
         %tmp.120 = getm $.Toybox.Graphics;
