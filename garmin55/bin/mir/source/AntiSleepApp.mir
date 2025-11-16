@@ -1,0 +1,51 @@
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Application,1,13,24]; @symbol_usingAlias = [App,1,28,31]; ]
+using Toybox.Application as :App;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Lang,2,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; @symbol_usingAlias = [Ui,3,24,26]; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 5; @symbol_classdef = [AntiSleepApp,5,6,18]; @symbol_extends<0> = [App,5,27,30]; @symbol_extends<1> = [AppBase,5,31,38]; ]
+class AntiSleepApp extends App.AppBase {
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 7; @symbol_functiondef = [initialize,7,13,23]; ]
+    function initialize() as Void {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepApp_mc_7_26_9_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" 8 8 ]
+        symbol [ App %tmp.1 8 8 11 ];
+        %tmp.1 = getm $.Toybox.Application;
+        symbol [ AppBase %tmp.2 8 12 19 ];
+        %tmp.2 = getv %tmp.1 :AppBase;
+        symbol [ initialize %tmp.3 8 20 30 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepApp_mc_7_26_9_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 11; @symbol_functiondef = [onStart,11,13,20]; @symbol_param<0> = [state,11,21,26]; ]
+    function onStart(state) {
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 15; @symbol_functiondef = [onStop,15,13,19]; @symbol_param<0> = [state,15,20,25]; ]
+    function onStop(state) {
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 19; @symbol_functiondef = [getInitialView,19,13,27]; ]
+    function getInitialView() {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepApp_mc_19_30_21_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" 20 8 ]
+        %tmp.1 = newa 1;
+        symbol [ AntiSleepView %tmp.5 20 21 34 ];
+        %tmp.5 = getv ? :AntiSleepView;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        ret %tmp.7;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepApp_mc_19_30_21_4_stop:
+    }
+}
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc"; @line = 1; ]
+<init> {
+}

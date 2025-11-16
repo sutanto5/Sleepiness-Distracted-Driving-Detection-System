@@ -1,0 +1,759 @@
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [WatchUi,1,13,20]; @symbol_usingAlias = [Ui,1,24,26]; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Graphics,2,13,21]; @symbol_usingAlias = [Gfx,2,25,28]; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [Sensor,3,13,19]; @symbol_usingAlias = [Sensor,3,23,29]; ]
+using Toybox.Sensor as :Sensor;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Attention,4,13,22]; @symbol_usingAlias = [Attention,4,26,35]; ]
+using Toybox.Attention as :Attention;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Timer,5,13,18]; @symbol_usingAlias = [Timer,5,22,27]; ]
+using Toybox.Timer as :Timer;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 6; @symbol_usingdef<0> = [Toybox,6,6,12]; @symbol_usingdef<1> = [Time,6,13,17]; @symbol_usingAlias = [Time,6,21,25]; ]
+using Toybox.Time as :Time;
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 8; @symbol_classdef = [AntiSleepView,8,6,19]; @symbol_extends<0> = [Ui,8,28,30]; @symbol_extends<1> = [View,8,31,35]; ]
+class AntiSleepView extends Ui.View {
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 8; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 11; @position = 10; @symbol_constdef = [HR_THRESHOLD,11,10,22]; ]
+    const HR_THRESHOLD = 52;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 12; @position = 10; @symbol_constdef = [LOW_HR_DURATION_SEC,12,10,29]; ]
+    const LOW_HR_DURATION_SEC = 5;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 13; @position = 10; @symbol_constdef = [SAMPLE_INTERVAL_MS,13,10,28]; ]
+    const SAMPLE_INTERVAL_MS = 1000;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 16; @position = 8; @symbol_vardef = [_timer,16,8,14]; ]
+    var _timer;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 17; @position = 8; @symbol_vardef = [_currentHr,17,8,18]; ]
+    var _currentHr = null;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 18; @position = 8; @symbol_vardef = [_isLow,18,8,14]; ]
+    var _isLow = false;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 19; @position = 8; @symbol_vardef = [_lowSince,19,8,17]; ]
+    var _lowSince = null;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 20; @position = 8; @symbol_vardef = [_alerted,20,8,16]; ]
+    var _alerted = false;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 21; @position = 8; @symbol_vardef = [_alertMessage,21,8,21]; ]
+    var _alertMessage = null;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 22; @position = 8; @symbol_vardef = [_alertShownUntilSec,22,8,27]; ]
+    var _alertShownUntilSec = null;
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 24; @symbol_functiondef = [initialize,24,13,23]; ]
+    function initialize() as Void {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_24_26_26_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 25 8 ]
+        symbol [ View %tmp.2 25 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 25 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_24_26_26_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 28; @symbol_functiondef = [onShow,28,13,19]; ]
+    function onShow() {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_28_22_35_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 30 8 ]
+        symbol [ Sensor %tmp.1 30 8 14 ];
+        %tmp.1 = getm $.Toybox.Sensor;
+        symbol [ setEnabledSensors %tmp.2 30 15 32 ];
+        %tmp.2 = getv function %tmp.1 :setEnabledSensors;
+        %tmp.3 = newa 1;
+        symbol [ Sensor %tmp.4 30 34 40 ];
+        %tmp.4 = getm $.Toybox.Sensor;
+        symbol [ SENSOR_HEARTRATE %tmp.5 30 41 57 ];
+        %tmp.5 = getv %tmp.4 :SENSOR_HEARTRATE;
+        %tmp.6 = dup %tmp.3;
+        %tmp.7 = aputv %tmp.6 0 %tmp.5;
+        invoke %tmp.1 %tmp.2(%tmp.7);
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 33 8 ]
+        symbol [ Timer %tmp.10 33 21 26 ];
+        %tmp.10 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.11 33 27 32 ];
+        %tmp.11 = getv function ? %tmp.10 :Timer;
+        %tmp.8 = newc %tmp.11 ();
+        symbol [ _timer ? 33 8 14 ];
+        putv self :_timer %tmp.8;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 34 8 ]
+        symbol [ _timer %tmp.13 34 8 14 ];
+        %tmp.13 = getv ? :_timer;
+        symbol [ start %tmp.14 34 15 20 ];
+        %tmp.14 = getv function %tmp.13 :start;
+        %tmp.15 = self;
+        symbol [ method %tmp.16 34 21 27 ];
+        %tmp.16 = getv function %tmp.15 :method;
+        %tmp.18 = const :onSample;
+        symbol [ onSample %tmp.18 34 29 37 const ];
+        %tmp.19 = invoke %tmp.15 %tmp.16(%tmp.18);
+        symbol [ SAMPLE_INTERVAL_MS %tmp.21 34 40 58 ];
+        %tmp.21 = getv ? :SAMPLE_INTERVAL_MS;
+        %tmp.22 = true;
+        invoke %tmp.13 %tmp.14(%tmp.19, %tmp.21, %tmp.22);
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_28_22_35_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 37; @symbol_functiondef = [onHide,37,13,19]; ]
+    function onHide() {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_37_22_46_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 39 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_8_42_8_if_stmt:
+        symbol [ _timer %tmp.2 39 12 18 ];
+        %tmp.2 = getv ? :_timer;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_8_42_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_8_42_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_28_42_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 40 12 ]
+        symbol [ _timer %tmp.6 40 12 18 ];
+        %tmp.6 = getv ? :_timer;
+        %tmp.7 = as %tmp.6 { (!Null) };
+        symbol [ stop %tmp.8 40 19 23 ];
+        %tmp.8 = getv function %tmp.7 :stop;
+        invoke %tmp.7 %tmp.8();
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 41 12 ]
+        %tmp.9 = null;
+        symbol [ _timer ? 41 12 18 ];
+        putv self :_timer %tmp.9;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_28_42_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_8_42_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_39_8_42_8_if_end:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 45 8 ]
+        symbol [ Sensor %tmp.10 45 8 14 ];
+        %tmp.10 = getm $.Toybox.Sensor;
+        symbol [ setEnabledSensors %tmp.11 45 15 32 ];
+        %tmp.11 = getv function %tmp.10 :setEnabledSensors;
+        %tmp.12 = newa 0;
+        invoke %tmp.10 %tmp.11(%tmp.12);
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_37_22_46_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 49; @symbol_functiondef = [onSample,49,13,21]; ]
+    function onSample() as Void {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_49_32_59_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 50 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_49_32_59_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_49_32_59_4_stop" ]
+        %info.1 = local;
+        symbol [ info %info.1 50 12 16 ];
+        symbol [ Sensor %tmp.1 50 19 25 ];
+        %tmp.1 = getm $.Toybox.Sensor;
+        symbol [ getInfo %tmp.2 50 26 33 ];
+        %tmp.2 = getv function %tmp.1 :getInfo;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %info.1 %tmp.3;
+        symbol [ info %info.1 50 12 16 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 52 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_8_55_8_if_stmt:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_12_52_46_begin:
+        %tmp.4 = lgetv %info.1;
+        symbol [ info %tmp.4 52 12 16 ];
+        %tmp.5 = null;
+        %tmp.6 = ne %tmp.4 %tmp.5;
+        bf %tmp.6 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_8_55_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_28_52_46_true:
+        %tmp.7 = lgetv %info.1;
+        symbol [ info %tmp.7 52 28 32 ];
+        %tmp.8 = as %tmp.7 { (!Null) };
+        symbol [ heartRate %tmp.9 52 33 42 ];
+        %tmp.9 = getv %tmp.8 :heartRate;
+        %tmp.10 = null;
+        %tmp.11 = ne %tmp.9 %tmp.10;
+        push %tmp.11;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_28_52_46_end:
+        %tmp.12 = phi [%tmp.6 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_12_52_46_begin] [%tmp.11 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_28_52_46_true] [%tmp.12 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_28_52_46_end];
+        bf %tmp.12 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_8_55_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_8_55_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_52_55_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 53 12 ]
+        %tmp.13 = lgetv %info.1;
+        symbol [ info %tmp.13 53 25 29 ];
+        %tmp.14 = as %tmp.13 { (!Null) };
+        symbol [ heartRate %tmp.15 53 30 39 ];
+        %tmp.15 = getv %tmp.14 :heartRate;
+        symbol [ _currentHr ? 53 12 22 ];
+        putv self :_currentHr %tmp.15;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 54 12 ]
+        %tmp.16 = self;
+        symbol [ checkForSleepiness %tmp.17 54 12 30 ];
+        %tmp.17 = getv function %tmp.16 :checkForSleepiness;
+        invoke %tmp.16 %tmp.17();
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_52_55_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_8_55_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_52_8_55_8_if_end:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 58 8 ]
+        symbol [ Ui %tmp.18 58 8 10 ];
+        %tmp.18 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.19 58 11 24 ];
+        %tmp.19 = getv function %tmp.18 :requestUpdate;
+        invoke %tmp.18 %tmp.19();
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_49_32_59_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 62; @symbol_functiondef = [checkForSleepiness,62,13,31]; ]
+    function checkForSleepiness() {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_62_34_95_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 63 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_8_67_8_if_stmt:
+        symbol [ _currentHr %tmp.2 63 12 22 ];
+        %tmp.2 = getv ? :_currentHr;
+        %tmp.3 = null;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_8_67_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_8_67_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_32_67_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 64 12 ]
+        %tmp.5 = false;
+        symbol [ _isLow ? 64 12 18 ];
+        putv self :_isLow %tmp.5;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 65 12 ]
+        %tmp.6 = null;
+        symbol [ _lowSince ? 65 12 21 ];
+        putv self :_lowSince %tmp.6;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 66 12 ]
+        ret ?;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_32_67_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_8_67_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_63_8_67_8_if_end:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 69 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_62_34_95_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_62_34_95_4_stop" ]
+        %now.1 = local;
+        symbol [ now %now.1 69 12 15 ];
+        symbol [ Time %tmp.7 69 18 22 ];
+        %tmp.7 = getm $.Toybox.Time;
+        symbol [ now %tmp.8 69 23 26 ];
+        %tmp.8 = getv function %tmp.7 :now;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        lputv %now.1 %tmp.9;
+        symbol [ now %now.1 69 12 15 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 71 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_8_94_8_if_stmt:
+        symbol [ _currentHr %tmp.11 71 12 22 ];
+        %tmp.11 = getv ? :_currentHr;
+        symbol [ HR_THRESHOLD %tmp.13 71 25 37 ];
+        %tmp.13 = getv ? :HR_THRESHOLD;
+        %tmp.14 = lt %tmp.11 %tmp.13;
+        bf %tmp.14 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_8_94_8_if_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_8_94_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_39_86_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 72 12 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_12_85_12_if_stmt:
+        symbol [ _isLow %tmp.16 72 17 23 ];
+        %tmp.16 = getv ? :_isLow;
+        %tmp.17 = not %tmp.16;
+        bf %tmp.17 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_12_85_12_if_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_12_85_12_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_25_76_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 74 16 ]
+        %tmp.18 = true;
+        symbol [ _isLow ? 74 16 22 ];
+        putv self :_isLow %tmp.18;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 75 16 ]
+        %tmp.19 = lgetv %now.1;
+        symbol [ now %tmp.19 75 28 31 ];
+        symbol [ _lowSince ? 75 16 25 ];
+        putv self :_lowSince %tmp.19;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_25_76_12_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_12_85_12_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_12_85_12_if_else_false:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_76_19_85_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 78 16 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_stmt:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_20_79_41_begin:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_20_78_46_begin:
+        symbol [ _alerted %tmp.21 78 21 29 ];
+        %tmp.21 = getv ? :_alerted;
+        %tmp.22 = not %tmp.21;
+        bf %tmp.22 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_33_78_46_true:
+        symbol [ _lowSince %tmp.24 78 33 42 ];
+        %tmp.24 = getv ? :_lowSince;
+        %tmp.25 = null;
+        %tmp.26 = ne %tmp.24 %tmp.25;
+        push %tmp.26;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_33_78_46_end:
+        %tmp.27 = phi [%tmp.22 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_20_78_46_begin] [%tmp.26 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_33_78_46_true] [%tmp.27 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_33_78_46_end];
+        bf %tmp.27 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_79_20_79_41_true:
+        %tmp.28 = lgetv %now.1;
+        symbol [ now %tmp.28 79 21 24 ];
+        symbol [ _lowSince %tmp.30 79 27 36 ];
+        %tmp.30 = getv ? :_lowSince;
+        %tmp.31 = as %tmp.30 { (!Null) };
+        %tmp.32 = sub %tmp.28 %tmp.31;
+        symbol [ LOW_HR_DURATION_SEC %tmp.34 79 41 60 ];
+        %tmp.34 = getv ? :LOW_HR_DURATION_SEC;
+        %tmp.35 = gte %tmp.32 %tmp.34;
+        push %tmp.35;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_79_20_79_41_end:
+        %tmp.36 = phi [%tmp.27 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_20_79_41_begin] [%tmp.35 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_79_20_79_41_true] [%tmp.36 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_79_20_79_41_end];
+        bf %tmp.36 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_79_62_84_16_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 82 20 ]
+        %tmp.37 = self;
+        symbol [ tryVibrate %tmp.38 82 20 30 ];
+        %tmp.38 = getv function %tmp.37 :tryVibrate;
+        invoke %tmp.37 %tmp.38();
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 83 20 ]
+        %tmp.39 = true;
+        symbol [ _alerted ? 83 20 28 ];
+        putv self :_alerted %tmp.39;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_79_62_84_16_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_78_16_84_16_if_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_76_19_85_12_stop:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_72_12_85_12_if_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_39_86_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_8_94_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_8_94_8_if_else_false:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_86_15_94_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 87 12 ]
+        %tmp.40 = false;
+        symbol [ _isLow ? 87 12 18 ];
+        putv self :_isLow %tmp.40;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 88 12 ]
+        %tmp.41 = null;
+        symbol [ _lowSince ? 88 12 21 ];
+        putv self :_lowSince %tmp.41;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 89 12 ]
+        %tmp.42 = false;
+        symbol [ _alerted ? 89 12 20 ];
+        putv self :_alerted %tmp.42;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 92 12 ]
+        %tmp.43 = null;
+        symbol [ _alertMessage ? 92 12 25 ];
+        putv self :_alertMessage %tmp.43;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 93 12 ]
+        %tmp.44 = null;
+        symbol [ _alertShownUntilSec ? 93 12 31 ];
+        putv self :_alertShownUntilSec %tmp.44;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_86_15_94_8_stop:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_71_8_94_8_if_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_62_34_95_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 98; @symbol_functiondef = [tryVibrate,98,13,23]; ]
+    function tryVibrate() {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_98_26_120_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 100 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_8_108_8_if_stmt:
+        symbol [ Attention %tmp.1 100 12 21 ];
+        %tmp.1 = getm $.Toybox.Attention;
+        %tmp.3 = const :backlight;
+        symbol [ backlight %tmp.3 100 27 36 const ];
+        %tmp.4 = canhazplz %tmp.1 %tmp.3;
+        bf %tmp.4 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_8_108_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_8_108_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_38_108_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 101 12 ]
+        try @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_beginTry @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_endTry @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_catch @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_finally;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_beginTry:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_16_104_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 103 16 ]
+        symbol [ Attention %tmp.5 103 16 25 ];
+        %tmp.5 = getm $.Toybox.Attention;
+        symbol [ backlight %tmp.6 103 26 35 ];
+        %tmp.6 = getv function %tmp.5 :backlight;
+        %tmp.7 = 1.0;
+        invoke %tmp.5 %tmp.6(%tmp.7);
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_16_104_12_stop:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_endTry:
+        jsr @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_finally;
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_catch:
+        %tmp.8 = exception;
+        push %tmp.8;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 104 14 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_catch" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_104_14_107_12_end" ]
+        %e.1 = local;
+        symbol [ e %e.1 104 20 21 ];
+        %tmp.9 = dup %tmp.8;
+        lputv %e.1 %tmp.9;
+        symbol [ e %e.1 104 20 21 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_104_23_107_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 106 16 ]
+        symbol [ Attention %tmp.10 106 16 25 ];
+        %tmp.10 = getm $.Toybox.Attention;
+        symbol [ backlight %tmp.11 106 26 35 ];
+        %tmp.11 = getv function %tmp.10 :backlight;
+        %tmp.12 = true;
+        invoke %tmp.10 %tmp.11(%tmp.12);
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_104_23_107_12_stop:
+        jsr @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_finally;
+        pop;
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_104_14_107_12_end:
+        try @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_catch @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_104_14_107_12_end @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_104_14_107_12_end @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_finally;
+        jsr @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_finally;
+        throw %tmp.8;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_finally:
+        jsrret;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_101_12_107_12_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_38_108_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_8_108_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_100_8_108_8_if_end:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 111 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_8_114_8_if_stmt:
+        symbol [ Attention %tmp.13 111 12 21 ];
+        %tmp.13 = getm $.Toybox.Attention;
+        %tmp.15 = const :vibrate;
+        symbol [ vibrate %tmp.15 111 27 34 const ];
+        %tmp.16 = canhazplz %tmp.13 %tmp.15;
+        bf %tmp.16 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_8_114_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_8_114_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_36_114_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 112 12 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_36_114_8_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_36_114_8_stop" ]
+        %pattern.2 = local;
+        symbol [ pattern %pattern.2 112 16 23 ];
+        %tmp.17 = newa 1;
+        symbol [ Attention %tmp.20 112 32 41 ];
+        %tmp.20 = getm $.Toybox.Attention;
+        symbol [ VibeProfile %tmp.21 112 42 53 ];
+        %tmp.21 = getv function ? %tmp.20 :VibeProfile;
+        %tmp.22 = 100;
+        %tmp.23 = 800;
+        %tmp.18 = newc %tmp.21 (%tmp.22, %tmp.23);
+        %tmp.24 = dup %tmp.17;
+        %tmp.25 = aputv %tmp.24 0 %tmp.18;
+        lputv %pattern.2 %tmp.25;
+        symbol [ pattern %pattern.2 112 16 23 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 113 12 ]
+        symbol [ Attention %tmp.26 113 12 21 ];
+        %tmp.26 = getm $.Toybox.Attention;
+        symbol [ vibrate %tmp.27 113 22 29 ];
+        %tmp.27 = getv function %tmp.26 :vibrate;
+        %tmp.28 = lgetv %pattern.2;
+        symbol [ pattern %tmp.28 113 30 37 ];
+        invoke %tmp.26 %tmp.27(%tmp.28);
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_36_114_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_8_114_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_111_8_114_8_if_end:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 117 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_98_26_120_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_98_26_120_4_stop" ]
+        %nowSec.3 = local;
+        symbol [ nowSec %nowSec.3 117 12 18 ];
+        symbol [ Time %tmp.29 117 21 25 ];
+        %tmp.29 = getm $.Toybox.Time;
+        symbol [ now %tmp.30 117 26 29 ];
+        %tmp.30 = getv function %tmp.29 :now;
+        %tmp.31 = invoke %tmp.29 %tmp.30();
+        symbol [ value %tmp.32 117 32 37 ];
+        %tmp.32 = getv function %tmp.31 :value;
+        %tmp.33 = invoke %tmp.31 %tmp.32();
+        lputv %nowSec.3 %tmp.33;
+        symbol [ nowSec %nowSec.3 117 12 18 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 118 8 ]
+        %tmp.34 = "HR low – stay awake!";
+        symbol [ _alertMessage ? 118 8 21 ];
+        putv self :_alertMessage %tmp.34;
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 119 8 ]
+        %tmp.35 = lgetv %nowSec.3;
+        symbol [ nowSec %tmp.35 119 30 36 ];
+        %tmp.36 = 7;
+        %tmp.37 = add %tmp.35 %tmp.36;
+        symbol [ _alertShownUntilSec ? 119 8 27 ];
+        putv self :_alertShownUntilSec %tmp.37;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_98_26_120_4_stop:
+    }
+    [ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 122; @symbol_functiondef = [onUpdate,122,13,21]; @symbol_param<0> = [dc,122,22,24]; @symbol_param<0>_type<0> = [Gfx,122,28,31]; @symbol_param<0>_type<1> = [Dc,122,32,34]; ]
+    function onUpdate(dc as Gfx.Dc) {
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 123 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 123 8 10 ];
+        symbol [ clear %tmp.2 123 11 16 ];
+        %tmp.2 = getv function %tmp.1 :clear;
+        invoke %tmp.1 %tmp.2();
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 125 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop" ]
+        %w.1 = local;
+        symbol [ w %w.1 125 12 13 ];
+        %tmp.3 = lgetv %dc;
+        symbol [ dc %tmp.3 125 16 18 ];
+        symbol [ getWidth %tmp.4 125 19 27 ];
+        %tmp.4 = getv function %tmp.3 :getWidth;
+        %tmp.5 = invoke %tmp.3 %tmp.4();
+        lputv %w.1 %tmp.5;
+        symbol [ w %w.1 125 12 13 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 126 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop" ]
+        %h.2 = local;
+        symbol [ h %h.2 126 12 13 ];
+        %tmp.6 = lgetv %dc;
+        symbol [ dc %tmp.6 126 16 18 ];
+        symbol [ getHeight %tmp.7 126 19 28 ];
+        %tmp.7 = getv function %tmp.6 :getHeight;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        lputv %h.2 %tmp.8;
+        symbol [ h %h.2 126 12 13 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 128 8 ]
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 128 8 10 ];
+        symbol [ setColor %tmp.10 128 11 19 ];
+        %tmp.10 = getv function %tmp.9 :setColor;
+        symbol [ Gfx %tmp.11 128 20 23 ];
+        %tmp.11 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.12 128 24 35 ];
+        %tmp.12 = getv %tmp.11 :COLOR_WHITE;
+        symbol [ Gfx %tmp.13 128 37 40 ];
+        %tmp.13 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.14 128 41 52 ];
+        %tmp.14 = getv %tmp.13 :COLOR_BLACK;
+        invoke %tmp.9 %tmp.10(%tmp.12, %tmp.14);
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 131 8 ]
+        %tmp.15 = lgetv %dc;
+        symbol [ dc %tmp.15 131 8 10 ];
+        symbol [ drawText %tmp.16 131 11 19 ];
+        %tmp.16 = getv function %tmp.15 :drawText;
+        %tmp.17 = lgetv %w.1;
+        symbol [ w %tmp.17 131 20 21 ];
+        %tmp.18 = 2;
+        %tmp.19 = div %tmp.17 %tmp.18;
+        %tmp.20 = lgetv %h.2;
+        symbol [ h %tmp.20 131 25 26 ];
+        %tmp.21 = 6;
+        %tmp.22 = div %tmp.20 %tmp.21;
+        symbol [ Gfx %tmp.23 131 30 33 ];
+        %tmp.23 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.24 131 34 45 ];
+        %tmp.24 = getv %tmp.23 :FONT_MEDIUM;
+        %tmp.25 = "AntiSleep HR";
+        symbol [ Gfx %tmp.26 132 20 23 ];
+        %tmp.26 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.27 132 24 43 ];
+        %tmp.27 = getv %tmp.26 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.15 %tmp.16(%tmp.19, %tmp.22, %tmp.24, %tmp.25, %tmp.27);
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 135 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop" ]
+        %hrText.3 = local;
+        symbol [ hrText %hrText.3 135 12 18 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_begin:
+        symbol [ _currentHr %tmp.29 135 22 32 ];
+        %tmp.29 = getv ? :_currentHr;
+        %tmp.30 = null;
+        %tmp.31 = eq %tmp.29 %tmp.30;
+        bf %tmp.31 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_true:
+        %tmp.32 = "HR: --";
+        push %tmp.32;
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_else_false:
+        %tmp.33 = "HR: ";
+        symbol [ _currentHr %tmp.35 137 23 33 ];
+        %tmp.35 = getv ? :_currentHr;
+        %tmp.36 = as %tmp.35 { (!Null) };
+        symbol [ toString %tmp.37 137 34 42 ];
+        %tmp.37 = getv function %tmp.36 :toString;
+        %tmp.38 = invoke %tmp.36 %tmp.37();
+        %tmp.39 = add %tmp.33 %tmp.38;
+        %tmp.40 = " bpm";
+        %tmp.41 = add %tmp.39 %tmp.40;
+        push %tmp.41;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_end:
+        %tmp.42 = phi [%tmp.31 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_begin] [%tmp.32 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_true] [%tmp.41 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_else_false] [%tmp.42 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_135_21_137_47_end];
+        lputv %hrText.3 %tmp.42;
+        symbol [ hrText %hrText.3 135 12 18 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 139 8 ]
+        %tmp.43 = lgetv %dc;
+        symbol [ dc %tmp.43 139 8 10 ];
+        symbol [ drawText %tmp.44 139 11 19 ];
+        %tmp.44 = getv function %tmp.43 :drawText;
+        %tmp.45 = lgetv %w.1;
+        symbol [ w %tmp.45 139 20 21 ];
+        %tmp.46 = 2;
+        %tmp.47 = div %tmp.45 %tmp.46;
+        %tmp.48 = lgetv %h.2;
+        symbol [ h %tmp.48 139 25 26 ];
+        %tmp.49 = 0.4;
+        %tmp.50 = mul %tmp.48 %tmp.49;
+        symbol [ Gfx %tmp.51 139 32 35 ];
+        %tmp.51 = getm $.Toybox.Graphics;
+        symbol [ FONT_LARGE %tmp.52 139 36 46 ];
+        %tmp.52 = getv %tmp.51 :FONT_LARGE;
+        %tmp.53 = lgetv %hrText.3;
+        symbol [ hrText %tmp.53 139 48 54 ];
+        symbol [ Gfx %tmp.54 140 20 23 ];
+        %tmp.54 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.55 140 24 43 ];
+        %tmp.55 = getv %tmp.54 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.43 %tmp.44(%tmp.47, %tmp.50, %tmp.52, %tmp.53, %tmp.55);
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 143 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop" ]
+        %thText.4 = local;
+        symbol [ thText %thText.4 143 12 18 ];
+        %tmp.56 = "Threshold: ";
+        symbol [ HR_THRESHOLD %tmp.58 143 37 49 ];
+        %tmp.58 = getv ? :HR_THRESHOLD;
+        symbol [ toString %tmp.59 143 50 58 ];
+        %tmp.59 = getv function %tmp.58 :toString;
+        %tmp.60 = invoke %tmp.58 %tmp.59();
+        %tmp.61 = add %tmp.56 %tmp.60;
+        %tmp.62 = " bpm";
+        %tmp.63 = add %tmp.61 %tmp.62;
+        lputv %thText.4 %tmp.63;
+        symbol [ thText %thText.4 143 12 18 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 144 8 ]
+        %tmp.64 = lgetv %dc;
+        symbol [ dc %tmp.64 144 8 10 ];
+        symbol [ drawText %tmp.65 144 11 19 ];
+        %tmp.65 = getv function %tmp.64 :drawText;
+        %tmp.66 = lgetv %w.1;
+        symbol [ w %tmp.66 144 20 21 ];
+        %tmp.67 = 2;
+        %tmp.68 = div %tmp.66 %tmp.67;
+        %tmp.69 = lgetv %h.2;
+        symbol [ h %tmp.69 144 25 26 ];
+        %tmp.70 = 0.57;
+        %tmp.71 = mul %tmp.69 %tmp.70;
+        symbol [ Gfx %tmp.72 144 33 36 ];
+        %tmp.72 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.73 144 37 47 ];
+        %tmp.73 = getv %tmp.72 :FONT_SMALL;
+        %tmp.74 = lgetv %thText.4;
+        symbol [ thText %tmp.74 144 49 55 ];
+        symbol [ Gfx %tmp.75 145 20 23 ];
+        %tmp.75 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.76 145 24 43 ];
+        %tmp.76 = getv %tmp.75 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.64 %tmp.65(%tmp.68, %tmp.71, %tmp.73, %tmp.74, %tmp.76);
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 148 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop" ]
+        %nowSec.5 = local;
+        symbol [ nowSec %nowSec.5 148 12 18 ];
+        symbol [ Time %tmp.77 148 22 26 ];
+        %tmp.77 = getm $.Toybox.Time;
+        symbol [ now %tmp.78 148 27 30 ];
+        %tmp.78 = getv function %tmp.77 :now;
+        %tmp.79 = invoke %tmp.77 %tmp.78();
+        symbol [ value %tmp.80 148 33 38 ];
+        %tmp.80 = getv function %tmp.79 :value;
+        %tmp.81 = invoke %tmp.79 %tmp.80();
+        lputv %nowSec.5 %tmp.81;
+        symbol [ nowSec %nowSec.5 148 12 18 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 149 8 ]
+        [ "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_start" "_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop" ]
+        %bottomText.6 = local;
+        symbol [ bottomText %bottomText.6 149 12 22 ];
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 151 8 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_stmt:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_12_152_22_begin:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_12_151_60_begin:
+        symbol [ _alertMessage %tmp.83 151 12 25 ];
+        %tmp.83 = getv ? :_alertMessage;
+        %tmp.84 = null;
+        %tmp.85 = ne %tmp.83 %tmp.84;
+        bf %tmp.85 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_37_151_60_true:
+        symbol [ _alertShownUntilSec %tmp.87 151 37 56 ];
+        %tmp.87 = getv ? :_alertShownUntilSec;
+        %tmp.88 = null;
+        %tmp.89 = ne %tmp.87 %tmp.88;
+        push %tmp.89;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_37_151_60_end:
+        %tmp.90 = phi [%tmp.85 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_12_151_60_begin] [%tmp.89 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_37_151_60_true] [%tmp.90 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_37_151_60_end];
+        bf %tmp.90 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_152_12_152_22_true:
+        %tmp.91 = lgetv %nowSec.5;
+        symbol [ nowSec %tmp.91 152 12 18 ];
+        symbol [ _alertShownUntilSec %tmp.93 152 22 41 ];
+        %tmp.93 = getv ? :_alertShownUntilSec;
+        %tmp.94 = as %tmp.93 { (!Null) };
+        %tmp.95 = lte %tmp.91 %tmp.94;
+        push %tmp.95;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_152_12_152_22_end:
+        %tmp.96 = phi [%tmp.90 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_12_152_22_begin] [%tmp.95 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_152_12_152_22_true] [%tmp.96 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_152_12_152_22_end];
+        bf %tmp.96 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_152_43_156_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 155 12 ]
+        symbol [ _alertMessage %tmp.98 155 25 38 ];
+        %tmp.98 = getv ? :_alertMessage;
+        %tmp.99 = as %tmp.98 { (!Null) };
+        lputv %bottomText.6 %tmp.99;
+        symbol [ bottomText %bottomText.6 155 12 22 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_152_43_156_8_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_else_false:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_156_15_167_8_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 158 12 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_12_166_12_if_stmt:
+        symbol [ _currentHr %tmp.101 158 16 26 ];
+        %tmp.101 = getv ? :_currentHr;
+        %tmp.102 = null;
+        %tmp.103 = eq %tmp.101 %tmp.102;
+        bf %tmp.103 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_12_166_12_if_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_12_166_12_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_36_160_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 159 16 ]
+        %tmp.104 = "Waiting for HR...";
+        lputv %bottomText.6 %tmp.104;
+        symbol [ bottomText %bottomText.6 159 16 26 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_36_160_12_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_12_166_12_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_12_166_12_if_false:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 160 19 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_19_166_12_if_stmt:
+        symbol [ _alerted %tmp.106 160 23 31 ];
+        %tmp.106 = getv ? :_alerted;
+        bf %tmp.106 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_19_166_12_if_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_19_166_12_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_33_162_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 161 16 ]
+        %tmp.107 = "Alert triggered (HR low)";
+        lputv %bottomText.6 %tmp.107;
+        symbol [ bottomText %bottomText.6 161 16 26 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_33_162_12_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_19_166_12_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_19_166_12_if_false:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 162 19 ]
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_stmt:
+        symbol [ _isLow %tmp.109 162 23 29 ];
+        %tmp.109 = getv ? :_isLow;
+        bf %tmp.109 @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_else_false;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_true:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_31_164_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 163 16 ]
+        %tmp.110 = "Low HR... monitoring";
+        lputv %bottomText.6 %tmp.110;
+        symbol [ bottomText %bottomText.6 163 16 26 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_31_164_12_stop:
+        goto @_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_end;
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_else_false:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_164_19_166_12_start:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 165 16 ]
+        %tmp.111 = "Awake / normal HR";
+        lputv %bottomText.6 %tmp.111;
+        symbol [ bottomText %bottomText.6 165 16 26 ];
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_164_19_166_12_stop:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_162_19_166_12_if_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_160_19_166_12_if_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_158_12_166_12_if_end:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_156_15_167_8_stop:
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_151_8_167_8_if_end:
+[ "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" 169 8 ]
+        %tmp.112 = lgetv %dc;
+        symbol [ dc %tmp.112 169 8 10 ];
+        symbol [ drawText %tmp.113 169 11 19 ];
+        %tmp.113 = getv function %tmp.112 :drawText;
+        %tmp.114 = lgetv %w.1;
+        symbol [ w %tmp.114 169 20 21 ];
+        %tmp.115 = 2;
+        %tmp.116 = div %tmp.114 %tmp.115;
+        %tmp.117 = lgetv %h.2;
+        symbol [ h %tmp.117 169 25 26 ];
+        %tmp.118 = 0.69;
+        %tmp.119 = mul %tmp.117 %tmp.118;
+        symbol [ Gfx %tmp.120 169 33 36 ];
+        %tmp.120 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.121 169 37 47 ];
+        %tmp.121 = getv %tmp.120 :FONT_SMALL;
+        %tmp.122 = lgetv %bottomText.6;
+        symbol [ bottomText %tmp.122 169 49 59 ];
+        symbol [ Gfx %tmp.123 170 20 23 ];
+        %tmp.123 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.124 170 24 43 ];
+        %tmp.124 = getv %tmp.123 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.112 %tmp.113(%tmp.116, %tmp.119, %tmp.121, %tmp.122, %tmp.124);
+_Users_joshualin_Documents_GitHub_Sleepiness_Distracted_Driving_Detection_System_garmin55_source_AntiSleepView_mc_122_36_171_4_stop:
+    }
+}
+[ @file = "/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc"; @line = 1; ]
+<init> {
+}

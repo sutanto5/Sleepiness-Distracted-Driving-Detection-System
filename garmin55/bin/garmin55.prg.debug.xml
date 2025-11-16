@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="1" lineNum="8" parent="globals/AntiSleepView" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="2" lineNum="5" parent="globals/garmin55MenuDelegate" pc="268435479" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="3" lineNum="26" parent="globals" pc="268435498" symbol="getApp"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="3" lineNum="27" parent="globals" pc="268435508" symbol="getApp"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="4" lineNum="7" parent="globals/Rez" pc="268435524" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="5" lineNum="4" parent="globals/garmin55View" pc="268435548" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="6" lineNum="5" parent="globals/AntiSleepApp" pc="268435567" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55Delegate.mc" id="7" lineNum="4" parent="globals/garmin55Delegate" pc="268435586" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="8" lineNum="5" parent="globals/garmin55App" pc="268435605" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="9" lineNum="28" parent="globals/AntiSleepView" pc="268435624" symbol="onShow"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="9" lineNum="30" parent="globals/AntiSleepView" pc="268435626" symbol="onShow"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="9" lineNum="33" parent="globals/AntiSleepView" pc="268435661" symbol="onShow"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="9" lineNum="34" parent="globals/AntiSleepView" pc="268435695" symbol="onShow"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="62" parent="globals/AntiSleepView" pc="268435737" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="63" parent="globals/AntiSleepView" pc="268435741" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="64" parent="globals/AntiSleepView" pc="268435753" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="65" parent="globals/AntiSleepView" pc="268435763" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="66" parent="globals/AntiSleepView" pc="268435772" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="69" parent="globals/AntiSleepView" pc="268435776" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="71" parent="globals/AntiSleepView" pc="268435793" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="72" parent="globals/AntiSleepView" pc="268435810" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="74" parent="globals/AntiSleepView" pc="268435822" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="75" parent="globals/AntiSleepView" pc="268435832" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="78" parent="globals/AntiSleepView" pc="268435845" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="82" parent="globals/AntiSleepView" pc="268435890" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="83" parent="globals/AntiSleepView" pc="268435902" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="87" parent="globals/AntiSleepView" pc="268435918" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="88" parent="globals/AntiSleepView" pc="268435928" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="89" parent="globals/AntiSleepView" pc="268435937" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="92" parent="globals/AntiSleepView" pc="268435947" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="10" lineNum="93" parent="globals/AntiSleepView" pc="268435956" symbol="checkForSleepiness"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="11" lineNum="49" parent="globals/AntiSleepView" pc="268435966" symbol="onSample"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="11" lineNum="50" parent="globals/AntiSleepView" pc="268435970" symbol="onSample"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="11" lineNum="52" parent="globals/AntiSleepView" pc="268435987" symbol="onSample"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="11" lineNum="53" parent="globals/AntiSleepView" pc="268436007" symbol="onSample"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="11" lineNum="54" parent="globals/AntiSleepView" pc="268436023" symbol="onSample"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="11" lineNum="58" parent="globals/AntiSleepView" pc="268436038" symbol="onSample"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="98" parent="globals/AntiSleepView" pc="268436055" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="100" parent="globals/AntiSleepView" pc="268436059" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="103" parent="globals/AntiSleepView" pc="268436074" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="104" parent="globals/AntiSleepView" pc="268436101" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="106" parent="globals/AntiSleepView" pc="268436105" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="111" parent="globals/AntiSleepView" pc="268436138" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="112" parent="globals/AntiSleepView" pc="268436153" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="113" parent="globals/AntiSleepView" pc="268436205" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="117" parent="globals/AntiSleepView" pc="268436226" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="118" parent="globals/AntiSleepView" pc="268436252" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="12" lineNum="119" parent="globals/AntiSleepView" pc="268436265" symbol="tryVibrate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="13" lineNum="24" parent="globals/AntiSleepView" pc="268436282" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="13" lineNum="25" parent="globals/AntiSleepView" pc="268436284" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="14" lineNum="37" parent="globals/AntiSleepView" pc="268436303" symbol="onHide"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="14" lineNum="39" parent="globals/AntiSleepView" pc="268436305" symbol="onHide"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="14" lineNum="40" parent="globals/AntiSleepView" pc="268436318" symbol="onHide"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="14" lineNum="41" parent="globals/AntiSleepView" pc="268436336" symbol="onHide"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="14" lineNum="45" parent="globals/AntiSleepView" pc="268436348" symbol="onHide"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="122" parent="globals/AntiSleepView" pc="268436371" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="123" parent="globals/AntiSleepView" pc="268436375" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="125" parent="globals/AntiSleepView" pc="268436387" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="126" parent="globals/AntiSleepView" pc="268436400" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="128" parent="globals/AntiSleepView" pc="268436413" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="131" parent="globals/AntiSleepView" pc="268436435" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="135" parent="globals/AntiSleepView" pc="268436478" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="139" parent="globals/AntiSleepView" pc="268436529" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="143" parent="globals/AntiSleepView" pc="268436569" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="144" parent="globals/AntiSleepView" pc="268436597" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="148" parent="globals/AntiSleepView" pc="268436637" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="151" parent="globals/AntiSleepView" pc="268436663" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="155" parent="globals/AntiSleepView" pc="268436703" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="158" parent="globals/AntiSleepView" pc="268436716" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="159" parent="globals/AntiSleepView" pc="268436728" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="160" parent="globals/AntiSleepView" pc="268436738" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="161" parent="globals/AntiSleepView" pc="268436749" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="162" parent="globals/AntiSleepView" pc="268436759" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="163" parent="globals/AntiSleepView" pc="268436770" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="165" parent="globals/AntiSleepView" pc="268436780" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepView.mc" id="15" lineNum="169" parent="globals/AntiSleepView" pc="268436787" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="16" lineNum="11" parent="globals/garmin55MenuDelegate" pc="268436828" symbol="onMenuItem"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="16" lineNum="12" parent="globals/garmin55MenuDelegate" pc="268436830" symbol="onMenuItem"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="16" lineNum="13" parent="globals/garmin55MenuDelegate" pc="268436841" symbol="onMenuItem"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="16" lineNum="14" parent="globals/garmin55MenuDelegate" pc="268436865" symbol="onMenuItem"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="16" lineNum="15" parent="globals/garmin55MenuDelegate" pc="268436876" symbol="onMenuItem"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="17" lineNum="7" parent="globals/garmin55MenuDelegate" pc="268436901" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55MenuDelegate.mc" id="17" lineNum="8" parent="globals/garmin55MenuDelegate" pc="268436903" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="19" lineNum="11" parent="globals/garmin55View" pc="268436922" symbol="onLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="19" lineNum="12" parent="globals/garmin55View" pc="268436924" symbol="onLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="20" lineNum="6" parent="globals/garmin55View" pc="268436966" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="20" lineNum="7" parent="globals/garmin55View" pc="268436968" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="22" lineNum="22" parent="globals/garmin55View" pc="268436987" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55View.mc" id="22" lineNum="24" parent="globals/garmin55View" pc="268436989" symbol="onUpdate"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="23" lineNum="11" parent="globals/AntiSleepApp" pc="268437010" symbol="onStart"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="24" lineNum="19" parent="globals/AntiSleepApp" pc="268437013" symbol="getInitialView"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="24" lineNum="20" parent="globals/AntiSleepApp" pc="268437015" symbol="getInitialView"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="25" lineNum="7" parent="globals/AntiSleepApp" pc="268437052" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="25" lineNum="8" parent="globals/AntiSleepApp" pc="268437054" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/AntiSleepApp.mc" id="26" lineNum="15" parent="globals/AntiSleepApp" pc="268437077" symbol="onStop"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55Delegate.mc" id="27" lineNum="10" parent="globals/garmin55Delegate" pc="268437080" symbol="onMenu"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55Delegate.mc" id="27" lineNum="11" parent="globals/garmin55Delegate" pc="268437082" symbol="onMenu"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55Delegate.mc" id="27" lineNum="12" parent="globals/garmin55Delegate" pc="268437163" symbol="onMenu"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55Delegate.mc" id="28" lineNum="6" parent="globals/garmin55Delegate" pc="268437166" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55Delegate.mc" id="28" lineNum="7" parent="globals/garmin55Delegate" pc="268437168" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="29" lineNum="12" parent="globals/garmin55App" pc="268437187" symbol="onStart"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="30" lineNum="20" parent="globals/garmin55App" pc="268437190" symbol="getInitialView"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="30" lineNum="21" parent="globals/garmin55App" pc="268437192" symbol="getInitialView"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="31" lineNum="7" parent="globals/garmin55App" pc="268437259" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="31" lineNum="8" parent="globals/garmin55App" pc="268437261" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/source/garmin55App.mc" id="32" lineNum="16" parent="globals/garmin55App" pc="268437280" symbol="onStop"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="33" lineNum="14" parent="globals/Rez/Layouts" pc="268437283" symbol="MainLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="33" lineNum="15" parent="globals/Rez/Layouts" pc="268437295" symbol="MainLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="33" lineNum="17" parent="globals/Rez/Layouts" pc="268437308" symbol="MainLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="33" lineNum="19" parent="globals/Rez/Layouts" pc="268437442" symbol="MainLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="33" lineNum="20" parent="globals/Rez/Layouts" pc="268437547" symbol="MainLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="33" lineNum="22" parent="globals/Rez/Layouts" pc="268437584" symbol="MainLayout"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="34" lineNum="27" parent="globals/Rez/Menus/MainMenu" pc="268437611" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="35" lineNum="28" parent="globals/Rez/Menus/MainMenu" pc="268437630" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="35" lineNum="29" parent="globals/Rez/Menus/MainMenu" pc="268437632" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="35" lineNum="30" parent="globals/Rez/Menus/MainMenu" pc="268437650" symbol="initialize"/>
+        <entry filename="/Users/joshualin/Documents/GitHub/Sleepiness-Distracted-Driving-Detection-System/garmin55/bin/gen/006-B3869-00/source/Rez.mcgen" id="35" lineNum="31" parent="globals/Rez/Menus/MainMenu" pc="268437706" symbol="initialize"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="8389346" symbol="text"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="10" object="true" symbol="garmin55Delegate"/>
+        <entry id="5" module="true" symbol="globals/Rez/Menus"/>
+        <entry id="27" method="true" symbol="MainLayout"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="29" symbol="AppName"/>
+        <entry id="6" module="true" symbol="globals/Rez/Strings"/>
+        <entry id="8389080" method="true" symbol="onMenu"/>
+        <entry id="8389345" symbol="rezId"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="2" module="true" symbol="globals/Rez"/>
+        <entry id="12" object="true" symbol="garmin55View"/>
+        <entry field="true" id="32" symbol="prompt"/>
+        <entry field="true" id="26" symbol="id_monkey"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="8389065" symbol="locY"/>
+        <entry field="true" id="8389064" symbol="locX"/>
+        <entry id="21" method="true" symbol="onSample"/>
+        <entry id="9" object="true" symbol="garmin55App"/>
+        <entry id="11" object="true" symbol="garmin55MenuDelegate"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry id="8389348" symbol="font"/>
+        <entry field="true" id="18" symbol="_lowSince"/>
+        <entry id="34" symbol="item_2"/>
+        <entry id="33" symbol="item_1"/>
+        <entry id="24" module="true" symbol="Menus"/>
+        <entry id="8389275" method="true" symbol="getApp"/>
+        <entry id="4" module="true" symbol="globals/Rez/Layouts"/>
+        <entry id="8" object="true" symbol="AntiSleepView"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry field="true" id="8389063" symbol="identifier"/>
+        <entry id="8389349" symbol="justification"/>
+        <entry field="true" id="14" symbol="_alertShownUntilSec"/>
+        <entry id="8388987" method="true" symbol="vibrate"/>
+        <entry field="true" id="19" symbol="_timer"/>
+        <entry field="true" id="16" symbol="_currentHr"/>
+        <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+        <entry id="28" object="true" symbol="MainMenu"/>
+        <entry id="22" method="true" symbol="tryVibrate"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8388645" module="true" symbol="Time"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry field="true" id="25" symbol="LauncherIcon"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry field="true" id="13" symbol="_alertMessage"/>
+        <entry id="8388643" module="true" symbol="Sensor"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry field="true" id="17" symbol="_isLow"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="8389109" method="true" symbol="onMenuItem"/>
+        <entry field="true" id="8389347" symbol="color"/>
+        <entry id="8388646" module="true" object="true" symbol="Timer"/>
+        <entry id="23" module="true" symbol="Layouts"/>
+        <entry id="8388636" module="true" symbol="Attention"/>
+        <entry field="true" id="15" symbol="_alerted"/>
+        <entry id="20" method="true" symbol="checkForSleepiness"/>
+        <entry id="7" object="true" symbol="AntiSleepApp"/>
+        <entry id="8388988" method="true" symbol="backlight"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry field="true" id="31" symbol="menu_label_2"/>
+        <entry field="true" id="30" symbol="menu_label_1"/>
+    </symbolTable>
+    <localVars>
+        <entry endPc="268435964" name="now" stackId="1" startPc="268435741"/>
+        <entry endPc="268436053" name="info" stackId="1" startPc="268435970"/>
+        <entry endPc="268436129" name="e" stackId="1" startPc="268436101"/>
+        <entry endPc="268436222" name="pattern" stackId="2" startPc="268436153"/>
+        <entry endPc="268436280" name="nowSec" stackId="3" startPc="268436059"/>
+        <entry arg="true" endPc="268436827" name="dc" stackId="1" startPc="268436371"/>
+        <entry endPc="268436826" name="w" stackId="2" startPc="268436375"/>
+        <entry endPc="268436826" name="h" stackId="3" startPc="268436375"/>
+        <entry endPc="268436826" name="hrText" stackId="4" startPc="268436375"/>
+        <entry endPc="268436826" name="thText" stackId="5" startPc="268436375"/>
+        <entry endPc="268436826" name="nowSec" stackId="6" startPc="268436375"/>
+        <entry endPc="268436826" name="bottomText" stackId="7" startPc="268436375"/>
+        <entry arg="true" endPc="268436900" name="item" stackId="1" startPc="268436828"/>
+        <entry arg="true" endPc="268436965" name="dc" stackId="1" startPc="268436922"/>
+        <entry arg="true" endPc="268437009" name="dc" stackId="1" startPc="268436987"/>
+        <entry arg="true" endPc="268437610" name="dc" stackId="1" startPc="268437283"/>
+        <entry endPc="268437610" name="rez_cmp_local_var_dc_getWidth" stackId="2" startPc="268437295"/>
+        <entry endPc="268437610" name="rez_cmp_local_text_1193959466" stackId="3" startPc="268437295"/>
+        <entry endPc="268437610" name="rez_cmp_local_bitmap_id_monkey" stackId="4" startPc="268437295"/>
+    </localVars>
+    <deviceInfo deviceVersion="bb3887dffaa22ce965b5fe681a1cee6986d833ca" partNumber="006-B3869-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_2"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="menu_label_1"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="prompt"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="id_monkey"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="71" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/AntiSleepView" offset="174" parentId="globals" symbolId="AntiSleepView" type="class"/>
+        <dataEntry label="globals/garmin55MenuDelegate" offset="325" parentId="globals" symbolId="garmin55MenuDelegate" type="class"/>
+        <dataEntry label="globals/Rez" offset="380" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/garmin55View" offset="443" parentId="globals" symbolId="garmin55View" type="class"/>
+        <dataEntry label="globals/AntiSleepApp" offset="522" parentId="globals" symbolId="AntiSleepApp" type="class"/>
+        <dataEntry label="globals/garmin55Delegate" offset="593" parentId="globals" symbolId="garmin55Delegate" type="class"/>
+        <dataEntry label="globals/garmin55App" offset="648" parentId="globals" symbolId="garmin55App" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="719" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="766" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Menus" offset="805" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="844" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/Menus/MainMenu" offset="907" parentId="Menus" symbolId="MainMenu" type="class"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435478" name="&lt;init&gt;" parent="AntiSleepView" startPc="268435460">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435497" name="&lt;init&gt;" parent="garmin55MenuDelegate" startPc="268435479">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435523" name="getApp" startPc="268435498">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435547" name="&lt;init&gt;" parent="Rez" startPc="268435524">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435566" name="&lt;init&gt;" parent="garmin55View" startPc="268435548">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435585" name="&lt;init&gt;" parent="AntiSleepApp" startPc="268435567">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435604" name="&lt;init&gt;" parent="garmin55Delegate" startPc="268435586">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435623" name="&lt;init&gt;" parent="garmin55App" startPc="268435605">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435736" name="onShow" parent="AntiSleepView" startPc="268435624">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435965" name="checkForSleepiness" parent="AntiSleepView" startPc="268435737">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436054" name="onSample" parent="AntiSleepView" startPc="268435966">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436281" name="tryVibrate" parent="AntiSleepView" startPc="268436055">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436302" name="initialize" parent="AntiSleepView" startPc="268436282">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436370" name="onHide" parent="AntiSleepView" startPc="268436303">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436827" name="onUpdate" parent="AntiSleepView" startPc="268436371">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436900" name="onMenuItem" parent="garmin55MenuDelegate" startPc="268436828">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436921" name="initialize" parent="garmin55MenuDelegate" startPc="268436901">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onShow" parent="garmin55View">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436965" name="onLayout" parent="garmin55View" startPc="268436922">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436986" name="initialize" parent="garmin55View" startPc="268436966">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onHide" parent="garmin55View">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437009" name="onUpdate" parent="garmin55View" startPc="268436987">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437012" name="onStart" parent="AntiSleepApp" startPc="268437010">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437051" name="getInitialView" parent="AntiSleepApp" startPc="268437013">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437076" name="initialize" parent="AntiSleepApp" startPc="268437052">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437079" name="onStop" parent="AntiSleepApp" startPc="268437077">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437165" name="onMenu" parent="garmin55Delegate" startPc="268437080">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437186" name="initialize" parent="garmin55Delegate" startPc="268437166">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437189" name="onStart" parent="garmin55App" startPc="268437187">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437258" name="getInitialView" parent="garmin55App" startPc="268437190">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437279" name="initialize" parent="garmin55App" startPc="268437259">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437282" name="onStop" parent="garmin55App" startPc="268437280">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437610" name="MainLayout" parent="Layouts" startPc="268437283">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437629" name="&lt;init&gt;" parent="MainMenu" startPc="268437611">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437762" name="initialize" parent="MainMenu" startPc="268437630">
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>
