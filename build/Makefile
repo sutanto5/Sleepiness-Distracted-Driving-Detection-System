@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_opencv
+# Target rules for targets named distracted
 
 # Build rule for target.
-test_opencv: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_opencv
-.PHONY : test_opencv
+distracted: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 distracted
+.PHONY : distracted
 
 # fast build rule for target.
-test_opencv/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/build
-.PHONY : test_opencv/fast
+distracted/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/build
+.PHONY : distracted/fast
 
-test_opencv.o: test_opencv.cpp.o
-.PHONY : test_opencv.o
+distracted.o: distracted.cpp.o
+.PHONY : distracted.o
 
 # target to build an object file
-test_opencv.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/test_opencv.cpp.o
-.PHONY : test_opencv.cpp.o
+distracted.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/distracted.cpp.o
+.PHONY : distracted.cpp.o
 
-test_opencv.i: test_opencv.cpp.i
-.PHONY : test_opencv.i
+distracted.i: distracted.cpp.i
+.PHONY : distracted.i
 
 # target to preprocess a source file
-test_opencv.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/test_opencv.cpp.i
-.PHONY : test_opencv.cpp.i
+distracted.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/distracted.cpp.i
+.PHONY : distracted.cpp.i
 
-test_opencv.s: test_opencv.cpp.s
-.PHONY : test_opencv.s
+distracted.s: distracted.cpp.s
+.PHONY : distracted.s
 
 # target to generate assembly for a file
-test_opencv.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_opencv.dir/build.make CMakeFiles/test_opencv.dir/test_opencv.cpp.s
-.PHONY : test_opencv.cpp.s
+distracted.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/distracted.dir/build.make CMakeFiles/distracted.dir/distracted.cpp.s
+.PHONY : distracted.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test_opencv"
-	@echo "... test_opencv.o"
-	@echo "... test_opencv.i"
-	@echo "... test_opencv.s"
+	@echo "... distracted"
+	@echo "... distracted.o"
+	@echo "... distracted.i"
+	@echo "... distracted.s"
 .PHONY : help
 
 
